@@ -13,7 +13,7 @@ public class Game {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "assignee_id")
+    @Column(name = "game_id")
     private long id;
 
     private String name;
@@ -21,18 +21,30 @@ public class Game {
     private String gameLocation;
     private String patchLocation;
     private String patchTargetLocation;
+    private double size;
+    private String pictureUrl;
 
     public Game() {}
 
-    public Game(String name, String gameLoc, String patchLoc, String patchTargetLoc) {
+    public Game(String name, String gameLoc, String patchLoc, String patchTargetLoc, double size, String pictureUrl) {
         this.name = name;
         this.gameLocation = gameLoc;
         this.patchLocation = patchLoc;
         this.patchTargetLocation = patchTargetLoc;
+        this.size = size;
+        this.pictureUrl = pictureUrl;
     }
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public void setSize(long size){
+        this.size = size;
+    }
+
+    public void setPictureUrl(String url){
+        this.pictureUrl = url;
     }
 
     public void setGameLocation(String gameLoc) {
@@ -55,8 +67,16 @@ public class Game {
         return name;
     }
 
+    public double getSize() {
+        return size;
+    }
+
     public String getGameLocation() {
         return gameLocation;
+    }
+
+    public String getPictureUrl() {
+        return pictureUrl;
     }
 
     public String getPatchLocation() {
